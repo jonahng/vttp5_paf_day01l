@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.jonah.vttp5_paf_day01l.Models.Book;
 import com.jonah.vttp5_paf_day01l.Models.Game;
+import com.jonah.vttp5_paf_day01l.Models.Rsvp;
 import com.jonah.vttp5_paf_day01l.repositories.GameRepository;
 
 @Service
@@ -37,5 +38,13 @@ public class GameService {
 
     public void printAuthors(float rating){
         gameRepo.getAuthorRanking(rating);
+    }
+
+    public List<Rsvp> getRsvps(){
+        return gameRepo.getAllRsvps();
+    }
+
+    public List<Rsvp> getRsvpFromName(String name){
+        return gameRepo.getRsvpFromName(name);
     }
 }

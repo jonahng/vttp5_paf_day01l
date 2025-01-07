@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jonah.vttp5_paf_day01l.Models.Book;
 import com.jonah.vttp5_paf_day01l.Models.Game;
+import com.jonah.vttp5_paf_day01l.Models.Rsvp;
 
 import static com.jonah.vttp5_paf_day01l.repositories.Queries.*;
 
@@ -105,6 +106,34 @@ public class GameRepository {
         System.out.println(author + average_stars + count);
         }
         
+    }
+
+    public List<Rsvp> getAllRsvps(){
+
+        SqlRowSet rs = template.queryForRowSet(SQL_ALL_RSVPS);
+
+        List<Rsvp> allRsvps = new ArrayList<>();
+        while(rs.next()){
+            Rsvp r = Rsvp.toRsvp(rs);
+            System.out.println(r.getEmail() + r.getPhone());
+            allRsvps.add(r);
+        }
+
+        return allRsvps;
+    }
+
+
+    public List<Rsvp> getRsvpFromName(String name){
+        SqlRowSet rs = template.queryForRowSet(SQL_FIND_RSVP_FROM_NAME, '%' + name + '%');
+        List<Rsvp> allRsvps = new ArrayList<>();
+        while(rs.next()){
+            Rsvp r = Rsvp.toRsvp(rs);
+            System.out.println(r.getEmail() + r.getPhone());
+            allRsvps.add(r);
+        }
+
+        return allRsvps;
+
     }
 
 }

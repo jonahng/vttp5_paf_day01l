@@ -33,4 +33,13 @@ public static final String SQL_SELECT_BOOK_LIMIT = """
                 limit 10
 ;
                             """;
+
+
+        public static final String SQL_ALL_RSVPS = """
+                        select * from rsvptable;
+                        """;
+
+        public static final String SQL_FIND_RSVP_FROM_NAME = """
+                        select * from rsvptable where name like ?;
+                        """;
 }
