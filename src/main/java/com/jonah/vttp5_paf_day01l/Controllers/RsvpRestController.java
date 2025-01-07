@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jonah.vttp5_paf_day01l.Models.Rsvp;
 import com.jonah.vttp5_paf_day01l.Services.GameService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -45,6 +46,15 @@ public class RsvpRestController {
         System.out.println("THE JSON RECEIVED IS" + entity);
         gameService.addRsvpToDatabase(gameService.RsvpFromJson(entity));
         return ResponseEntity.ok().body("OK YOU SENT IN " + entity);
+    }
+
+
+    @PutMapping("/rsvp")
+    public ResponseEntity<String> putUpdate(@RequestBody String entity) {
+        //TODO: process POST request
+        System.out.println("THE JSON RECEIVED IS" + entity);
+        gameService.addRsvpToDatabase(gameService.RsvpFromJson(entity));
+        return ResponseEntity.ok().body("OK YOU SENT IN UPDATE" + entity);
     }
     
 }
