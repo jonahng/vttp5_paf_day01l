@@ -42,6 +42,7 @@ public class GameController {
     @GetMapping("/search")
     public ModelAndView getSearch(){
         ModelAndView mav = new ModelAndView("search");
+        gameService.printAuthors(4.5f);
         
         return mav;
     }

@@ -87,4 +87,24 @@ public class GameRepository {
         
         //opt.isEmpty, opt.get() in the controller, to check whether the optional is empty or contains the book.
     } */
+
+
+    public void getAuthorRanking(float avg_stars){
+        SqlRowSet rs = template.queryForRowSet(SQL_AUTHOR_RANKINGS, avg_stars);
+
+        if(!rs.next()){
+            System.out.println("no authors");
+            return;
+        }
+
+        while (rs.next()) {
+            String author = rs.getString("author");
+            String average_stars = rs.getString("avg_stars");
+            String count = rs.getString("count");
+
+        System.out.println(author + average_stars + count);
+        }
+        
+    }
+
 }

@@ -34,4 +34,8 @@ public class GameService {
     public Book getBookFromAsin(String asin){
         return gameRepo.getBookFromAsin(asin);
     }
+
+    public void printAuthors(float rating){
+        gameRepo.getAuthorRanking(rating);
+    }
 }

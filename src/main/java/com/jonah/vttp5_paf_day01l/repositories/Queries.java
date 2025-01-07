@@ -22,4 +22,15 @@ public static final String SQL_SELECT_BOOK_LIMIT = """
             public static final String SQL_SELECT_BOOK_ASIN = """
             select * from kindle where asin like ?
             """;
+
+            public static final String SQL_AUTHOR_RANKINGS =  """
+        select author, avg(stars) as avg_stars, count(asin) as count
+                from kindle
+                where author != ''
+                group by author
+                having avg(stars) > ? 
+                order by count(asin) desc 
+                limit 10
+;
+                            """;
 }
