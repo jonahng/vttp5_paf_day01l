@@ -42,4 +42,12 @@ public static final String SQL_SELECT_BOOK_LIMIT = """
         public static final String SQL_FIND_RSVP_FROM_NAME = """
                         select * from rsvptable where name like ?;
                         """;
+
+
+        public static final String SQL_ADD_RSVP_TO_DATABASE = """
+                        insert into rsvptable
+(email,phone,confirmDate,comments,name)
+values
+(?,?,?,?,?);
+                        """;
 }

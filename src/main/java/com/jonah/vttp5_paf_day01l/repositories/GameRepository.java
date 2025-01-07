@@ -136,4 +136,10 @@ public class GameRepository {
 
     }
 
+    public void addRsvpToDatabase(Rsvp r){
+        int added = template.update(SQL_ADD_RSVP_TO_DATABASE,r.getEmail(),r.getPhone(),r.getDate(),r.getComments(),r.getName());
+        System.out.println("added : " + added);
+    }
+    
+
 }
