@@ -75,4 +75,12 @@ public class GameService {
     public void addRsvpToDatabase(Rsvp r){
         gameRepo.addRsvpToDatabase(r);
     }
+
+    public String getRsvpCOunt(){
+        return gameRepo.getRsvpCount();
+    }
+
+    public void deleteRsvp(String email){
+      gameRepo.deleteRsvp(email);
+    }
 }

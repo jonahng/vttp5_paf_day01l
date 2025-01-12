@@ -53,8 +53,16 @@ public class RsvpRestController {
     public ResponseEntity<String> putUpdate(@RequestBody String entity) {
         //TODO: process POST request
         System.out.println("THE JSON RECEIVED IS" + entity);
-        gameService.addRsvpToDatabase(gameService.RsvpFromJson(entity));
+        Rsvp r = gameService.RsvpFromJson(entity);
+        gameService.deleteRsvp(r.getEmail());
+        gameService.addRsvpToDatabase(r);
         return ResponseEntity.ok().body("OK YOU SENT IN UPDATE" + entity);
+
+
+    }
+    @GetMapping("/rsvps/count")
+    public ResponseEntity<String> rsvpCount(){
+        return ResponseEntity.ok().body(gameService.getRsvpCOunt());
     }
     
 }

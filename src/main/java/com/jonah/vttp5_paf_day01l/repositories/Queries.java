@@ -50,4 +50,12 @@ public static final String SQL_SELECT_BOOK_LIMIT = """
 values
 (?,?,?,?,?);
                         """;
+
+        public static final String SQL_COUNT_RSPVS = """
+                        select COUNT(*) as rsvpCount from rsvptable;
+                        """;
+
+        public static final String SQL_DELETE_RSVP = """
+                        DELETE FROM rsvptable where email = ?;
+                        """;
 }

@@ -140,6 +140,25 @@ public class GameRepository {
         int added = template.update(SQL_ADD_RSVP_TO_DATABASE,r.getEmail(),r.getPhone(),r.getDate(),r.getComments(),r.getName());
         System.out.println("added : " + added);
     }
+
+
+    public void updateRsvpInDatabase(Rsvp r){
+
+    }
+
+    public String getRsvpCount(){
+        SqlRowSet rs = template.queryForRowSet(SQL_COUNT_RSPVS);
+        String count = "";
+        while (rs.next()) {
+            count = rs.getString("rsvpCount");
+            
+        }
+        return count;
+    }
+
+    public void deleteRsvp(String email){
+        template.update(SQL_DELETE_RSVP, email);
+    }
     
 
 }
